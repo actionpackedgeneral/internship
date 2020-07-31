@@ -150,5 +150,194 @@ az deployment sub create --template-file "C:\Users\agul\myJsBots\akshay-17-thbot
 The reason that this does not work is because there is a current bug regarding this [issue](https://github.com/Azure/azure-rest-api-specs/issues/8093).
 
 ```
-az deployment group create --resource-group "<name-of-resource-group>" --template-file "<path-to-template-with-preexisting-rg.json>" --parameters appId="<app-id-from-previous-step>" appSecret="<password-from-previous-step>" botId="<id or bot-app-service-name>" newWebAppName="<bot-app-service-name>" newAppServicePlanName="<name-of-app-service-plan>" appServicePlanLocation="<region-location-name>" --name "<bot-app-service-name>"
+az deployment group create --resource-group "akshay17thbot" --template-file "C:\Users\agul\myJsBots\akshay-17-thbot\deploymentTemplates\template-with-preexisting-rg.json" --parameters appId="56007e56-07aa-4e08-aa94-b14c4aab14ea" appSecret="AtLeastSixteenCharacters_0" botId="akshay17thbot" newWebAppName="akshay17thbot" newAppServicePlanName="akshay17thbot" appServicePlanLocation="West US" --name "akshay17thbot"
 ```
+
+To work around this, we create an app service plan on the GUI in azure portal.
+This is the output we get after running the above command.
+
+```
+C:\Users\agul\myJsBots>az deployment group create --resource-group "akshay17thbot" --template-file "C:\Users\agul\myJsBots\akshay-17-thbot\deploymentTemplates\template-with-preexisting-rg.json" --parameters appId="56007e56-07aa-4e08-aa94-b14c4aab14ea" appSecret="AtLeastSixteenCharacters_0" botId="akshay17thbot" newWebAppName="akshay17thbot" newAppServicePlanName="akshay17thbot" appServicePlanLocation="Central US" --name "akshay17thbot"
+```
+
+```JSON
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Resources/deployments/akshay17thbot",
+"location": null,
+"name": "akshay17thbot",
+"properties": {
+"correlationId": "a97a81d1-dbb6-45e6-b077-e8d26ad596d1",
+"debugSetting": null,
+"dependencies": [
+{
+"dependsOn": [
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Web/serverfarms/akshay17thbot",
+"resourceGroup": "akshay17thbot",
+"resourceName": "akshay17thbot",
+"resourceType": "Microsoft.Web/serverfarms"
+}
+],
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Web/sites/akshay17thbot",
+ "resourceGroup": "akshay17thbot",
+"resourceName": "akshay17thbot",
+"resourceType": "Microsoft.Web/sites"
+},
+{
+"dependsOn": [
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Web/sites/akshay17thbot",
+"resourceGroup": "akshay17thbot",
+"resourceName": "akshay17thbot",
+"resourceType": "Microsoft.Web/sites"
+}
+],
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.BotService/botServices/akshay17thbot",
+"resourceGroup": "akshay17thbot",
+"resourceName": "akshay17thbot",
+"resourceType": "Microsoft.BotService/botServices"
+}
+],
+"duration": "PT26.1548099S",
+"mode": "Incremental",
+"onErrorDeployment": null,
+"outputResources": [
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.BotService/botServices/akshay17thbot",
+"resourceGroup": "akshay17thbot"
+},
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Web/serverfarms/akshay17thbot",
+"resourceGroup": "akshay17thbot"
+},
+{
+"id": "/subscriptions/f148aa66-6ae9-4cdb-9de6-cbbd2422d29c/resourceGroups/akshay17thbot/providers/Microsoft.Web/sites/akshay17thbot",
+ "resourceGroup": "akshay17thbot"
+}
+],
+"outputs": null,
+"parameters": {
+"appId": {
+"type": "String",
+"value": "56007e56-07aa-4e08-aa94-b14c4aab14ea"
+},
+"appSecret": {
+"type": "String",
+"value": "AtLeastSixteenCharacters_0"
+},
+"appServicePlanLocation": {
+"type": "String",
+"value": "Central US"
+},
+"botId": {
+"type": "String",
+"value": "akshay17thbot"
+},
+"botSku": {
+"type": "String",
+"value": "F0"
+},
+"existingAppServicePlan": {
+"type": "String",
+"value": ""
+},
+"newAppServicePlanName": {
+"type": "String",
+"value": "akshay17thbot"
+},
+"newAppServicePlanSku": {
+"type": "Object",
+"value": {
+"capacity": 1,
+"family": "S",
+"name": "S1",
+"size": "S1",
+"tier": "Standard"
+}
+},
+"newWebAppName": {
+"type": "String",
+"value": "akshay17thbot"
+}
+},
+"parametersLink": null,
+"providers": [
+{
+"id": null,
+"namespace": "Microsoft.Web",
+"registrationPolicy": null,
+"registrationState": null,
+"resourceTypes": [
+{
+"aliases": null,
+"apiVersions": null,
+"capabilities": null,
+"locations": [
+"centralus"
+],
+"properties": null,
+"resourceType": "serverfarms"
+},
+{
+"aliases": null,
+"apiVersions": null,
+"capabilities": null,
+"locations": [
+"centralus"
+],
+"properties": null,
+"resourceType": "sites"
+}
+]
+},
+{
+"id": null,
+"namespace": "Microsoft.BotService",
+"registrationPolicy": null,
+"registrationState": null,
+"resourceTypes": [
+{
+"aliases": null,
+"apiVersions": null,
+"capabilities": null,
+"locations": [
+"global"
+],
+"properties": null,
+"resourceType": "botServices"
+}
+]
+}
+],
+"provisioningState": "Succeeded",
+"template": null,
+"templateHash": "554788647258636492",
+"templateLink": null,
+"timestamp": "2020-07-31T22:36:48.503933+00:00"
+},
+"resourceGroup": "akshay17thbot",
+"type": "Microsoft.Resources/deployments"
+}
+
+```
+
+CD into the project name and run the following commmand
+
+```
+az bot prepare-deploy --code-dir "." --lang Javascript
+```
+
+If it returns true, we have good news.
+
+Add the appID and password that you set into the .env file.
+The zipping must be done manually go into the folder and select all files and compress it into a zip.
+
+az webapp deployment source config-zip --resource-group "akshay17thbot" --name "akshay17thbot" --src "C:\Users\agul\myJsBots\akshay-17-thbot\index.zip"
+
+The output is arbitrary, run it again if you get errors.
+
+start ngrok, and do npm start,change the bot endpoint,
+Try running the webapp deployment again if it fails the first time.
+Test in webChat.
+Turn on the Microsoft channels switch.
+Then go on the app studio, manifest editor > create an app, use a new appId for the app than the bot, fill in everything with an \* (arbittrary names), then go to set up a bot, enter the app Id that we have been using this entire team, set the scope to personal and team. Then you can download the manifest package. Make sure that you check the manifest package, as there are non deterministic bugs with it.
