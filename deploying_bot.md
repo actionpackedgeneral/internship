@@ -1,4 +1,12 @@
-# Making a Microsft Chatbot
+# Deploying a Conversational Chatbot in Teams with Azure CLI
+
+## Creating a chatbot
+
+### Prerequisites:
+
+1. Microsoft Teams account and App
+2. NodeJS
+3. ngrok
 
 [tutorial]https://docs.microsoft.com/en-in/microsoftteams/platform/bots/how-to/create-a-bot-for-teams
 
