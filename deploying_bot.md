@@ -68,6 +68,16 @@ For the **app secret**, we use the password that we _provided_ ealier.
 The reason that this does not work is because there is a current bug regarding this [issue](https://github.com/Azure/azure-rest-api-specs/issues/8093).
 
 To work around this, we create an app service plan on the GUI in azure portal.
+
+Naviate to Azure Portal Home
+
+1) Create a Resource
+2) Type in "App Service Plan" in **Search the Marketplace**
+3) Create
+4) 
+
+
+
 This is the output we get after running the above command.
 
 ```
